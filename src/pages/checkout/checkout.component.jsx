@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import StripeChekoutButton from '../../components/stripe-button/stripe-button.component';
 
 import './checkout.sytles.scss';
 
@@ -36,6 +37,12 @@ const CheckoutPage = ({cartItems, total}) => (
         <div className='total'>
             <span>TOTAL: ${total}</span>
         </div>
+        <div className='test-warning'>
+             * Payment is not Implamented please use this test credit card information for payments *
+             <br />
+             4242 4242 4242 4242 - Exp: 09/23 - CVC: 123 
+        </div>
+        <StripeChekoutButton price={total}/>
     </div>
 );
 
